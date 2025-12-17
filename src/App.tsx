@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { useSidebarStore } from "@/store/sidebar-store";
+import { BackgroundSidebar } from "./components/custom/BackgroundSidebar";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { isOpen, open, close } = useSidebarStore();
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (nextOpen) {
+      open();
+    } else {
+      close();
+    }
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Button
+          size="pill"
+          className="absolute cursor-pointer text-white"
+          onClick={open}
+        >
+          Change background
+        </Button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <Sheet open={isOpen} onOpenChange={handleOpenChange}>
+        <SheetContent
+          side="right"
+          className="bg-white px-5 pt-8 min-w-[400px] border-none"
+        >
+          <SheetTitle className="sr-only">Background Settings</SheetTitle>
+          <BackgroundSidebar />
+        </SheetContent>
+      </Sheet>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
