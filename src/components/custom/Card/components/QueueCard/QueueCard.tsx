@@ -1,6 +1,6 @@
 type QueueCardProps = {
-  progress?: number;
-  time?: string;
+  progress: number;
+  time: string;
 };
 
 export function QueueCard({ progress, time }: QueueCardProps) {

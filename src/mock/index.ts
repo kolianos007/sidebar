@@ -1,31 +1,34 @@
+import cardImage1 from "/images/card-image-1.png";
+import cardImage2 from "/images/card-image-2.png";
+
 export const backgrounds = [
   {
     id: "default",
     isDefault: true,
-    image: "/images/card-image-1.png",
+    image: cardImage1,
   },
   {
     id: "studio",
-    image: "/images/card-image-2.png",
+    image: cardImage2,
   },
   {
     id: "garden",
-    image: "/images/card-image-1.png",
+    image: cardImage1,
   },
   {
     id: "studio1",
-    image: "/images/card-image-2.png",
+    image: cardImage2,
   },
   {
     id: "garden2",
-    image: "/images/card-image-1.png",
+    image: cardImage1,
   },
   {
     id: "studio3",
-    image: "/images/card-image-2.png",
+    image: cardImage2,
   },
   {
     id: "garden4",
-    image: "/images/card-image-1.png",
+    image: cardImage1,
   },
 ];
